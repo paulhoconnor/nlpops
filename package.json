@@ -1,0 +1,18 @@
+{
+  "name": "omo-test",
+  "version": "0.0.1",
+  "private": false,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "omo": "AUTOLOAD=true AUTO=true PORT=3000 omo"
+  },
+  "dependencies": {
+    "googleapis": "^27.0.0",
+    "omo": "https://github.com/open-micro/omo.git#0.1.0"
+  },
+  "devDependencies": {},
+  "repository": "https://github.com/paulhoconnor/nlpops.git",
+  "author": "Paul O'Connor",
+  "license": "Apache-2.0"
+}

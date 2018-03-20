@@ -1,0 +1,53 @@
+{
+  "model": "blueprint",
+  "name": "training",
+  "version": "0.1",
+  "triggerName": "trainingCron",
+  "tasks": [{"name": "remove old models",
+            "type": "exec",
+            "config": {"command": "rm",
+                       "detach": "false",
+			"args": ["-r"],
+                       "path": {"main": "my_models",
+                               "relative": "/notebooks"},
+			"ignoreError": "true"
+                      }
+            }, {"name": "get data and tests from Google sheet",
+                      "type": "module",
+                      "config": {"path": {"file": "omo/modules/csv.js",
+                                          "relative": "true"}
+                                }
+                      },
+            {"name": "add new data",
+                "type": "exec",
+                "config": {"command": "python3",
+                            "path": {"main": "GCE_GS_to_Guillaume.py",
+                                    "relative": "/notebooks"}
+                          }
+            }, {"name": "add new test cases",
+                "type": "exec",
+                "config": {"command": "sh",
+                            "path": {"main": "combine_testcases",
+                                    "relative": "/notebooks"}
+                          }
+            }, {"name": "build dataset",
+                "type": "exec",
+                "config": {"command": "python",
+                            "path": {"main": "build_data.py",
+                                    "relative": "/notebooks"}
+                          }
+            }, {"name": "train model",
+                "type": "exec",
+                "config": {"command": "python",
+                            "detach": "true",
+                            "path": {"main": "main.py",
+                                    "relative": "/notebooks"}
+                          }
+            }, {"name": "train model",
+                "type": "exec",
+                "config": {"command": "python",
+                            "path": {"main": "LAI_Model_Tester.py",
+                                    "relative": "/notebooks"}
+                          }
+            }]
+}

@@ -1,0 +1,7 @@
+{
+  "model": "trigger",
+  "name": "cron1",
+  "type": "cron",
+  "auto": "true",
+  "config": "0 */4 * * *"
+}
