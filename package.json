@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "omo": "AUTOLOAD=true AUTO=true PORT=3000 omo"
+    "omo": "AUTOLOAD=true AUTO=true PORT=80 omo"
   },
   "dependencies": {
     "googleapis": "^27.0.0",

@@ -2,7 +2,7 @@
   "model": "blueprint",
   "name": "training",
   "version": "0.1",
-  "triggerName": "trainingCron",
+  "triggerName": "cron1",
   "tasks": [{"name": "remove old models",
             "type": "exec",
             "config": {"command": "rm",
